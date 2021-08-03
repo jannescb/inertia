@@ -1,7 +1,11 @@
 import Text from '../../Repeatables/Text.vue';
 import Section from '../../Repeatables/Section.vue';
 
-export default  {
+const repeatables =  {
     text: Text,
     section: Section,
 };
+
+export {
+    repeatables
+}
