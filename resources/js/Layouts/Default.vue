@@ -1,7 +1,7 @@
 <template>
     <header class="flex justify-between">
         <MainNavigation />
-        <LanguageSwitch />
+        <Localize />
     </header>
     <main>
         <slot />
@@ -13,13 +13,13 @@
 import { defineComponent } from 'vue';
 import MainNavigation from './../Partials/MainNavigation.vue';
 import Footer from './../Partials/Footer.vue';
-import LanguageSwitch from './../Partials/LanguageSwitch.vue';
+import Localize from '../Partials/Localize.vue';
 
 export default defineComponent({
     components: {
         MainNavigation,
         Footer,
-        LanguageSwitch,
+        Localize,
     },
     props: {},
     setup() {

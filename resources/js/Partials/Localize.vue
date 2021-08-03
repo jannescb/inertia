@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Link :href="locale" v-for="(locale, index) in locales" :key="index">
+        <Link :href="link" v-for="(link, locale) in localize" :key="locale">
             {{ locale }}
         </Link>
     </div>
@@ -15,9 +15,9 @@ export default defineComponent({
         Link,
     },
     setup() {
-        const locales = computed(() => usePage().props.value.locales);
+        const localize = computed(() => usePage().props.value.localize);
         return {
-            locales,
+            localize,
         };
     },
 });

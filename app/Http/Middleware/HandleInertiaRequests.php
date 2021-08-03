@@ -39,10 +39,15 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         $mainNavigation = MainNavigationConfig::load();
+        
+        $localize = collect(config('translatable.locales'))->mapWithKeys(function ($locale) {
+            return [$locale => request()->route()->translate($locale)];
+        });
 
         return array_merge(parent::share($request), [
             'locale'         => app()->getLocale(),
             'locales'        => config('translatable.locales'),
+            'localize'       => $localize,
             'mainNavigation' => LitNavigationResource::collection($mainNavigation->main),
         ]);
     }
