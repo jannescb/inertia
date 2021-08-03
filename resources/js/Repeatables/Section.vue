@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Block from './../Block.vue';
+import Block from './../components/Block.vue';
 import RepeatableText from './Text.vue';
 
 export default defineComponent({
