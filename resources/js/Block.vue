@@ -22,7 +22,10 @@ export default defineComponent({
         },
     },
     setup(props) {
-        const getComponent = (repeatable: any) => {
+        interface RepeatableInterface {
+            type: string;
+        }
+        const getComponent = (repeatable: RepeatableInterface) => {
             if (props.repeatables.hasOwnProperty(repeatable.type)) {
                 return props.repeatables[repeatable.type];
             }

@@ -4,6 +4,8 @@ import {
     plugin as InertiaPlugin,
 } from '@inertiajs/inertia-vue3';
 
+import Ui from './Ui/index'
+
 const el = document.getElementById('app');
 
 if (el) {
@@ -14,7 +16,8 @@ if (el) {
                 resolveComponent: (name) => require(`./Pages/${name}`).default,
             }),
     })
-        .use(InertiaPlugin);
+        .use(InertiaPlugin)
+        .use(Ui);
 
     app.mount(el);
 

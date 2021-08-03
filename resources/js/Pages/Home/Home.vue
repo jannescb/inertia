@@ -8,8 +8,7 @@
 import { defineComponent } from 'vue';
 import DefaultLayout from '../../Layouts/Default.vue';
 import Block from '../../Block.vue';
-import RepeatableText from './../../components/Text.vue';
-import RepeatableSection from './../../components/Section.vue';
+import { repeatables } from './home.repeatables';
 export default defineComponent({
     components: {
         DefaultLayout,
@@ -22,10 +21,6 @@ export default defineComponent({
         },
     },
     setup(props) {
-        const repeatables = {
-            text: RepeatableText,
-            section: RepeatableSection,
-        };
         return {
             repeatables,
         };

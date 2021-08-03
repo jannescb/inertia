@@ -1,9 +1,10 @@
+import { App } from "vue";
+
 import Button from './Button.vue';
 
-const plugin = {
-    install(app: any) {
+export default {
+    install(app: App) {
         app.component('UiButton', Button);
     },
 };
 
-export { plugin };
