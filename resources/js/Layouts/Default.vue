@@ -10,8 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
-import { usePage } from '@inertiajs/inertia-vue3';
+import { defineComponent } from 'vue';
 import MainNavigation from './../Partials/MainNavigation.vue';
 import Footer from './../Partials/Footer.vue';
 import LanguageSwitch from './../Partials/LanguageSwitch.vue';
@@ -24,9 +23,7 @@ export default defineComponent({
     },
     props: {},
     setup() {
-        const locales = computed(() => usePage().props.value.locales);
-
-        return { locales };
+        //
     },
 });
 </script>

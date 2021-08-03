@@ -1,11 +1,7 @@
-import RepeatableText from '../../Repeatables/Text.vue';
-import RepeatableSection from '../../Repeatables/Section.vue';
+import Text from '../../Repeatables/Text.vue';
+import Section from '../../Repeatables/Section.vue';
 
-const repeatables = {
-    text: RepeatableText,
-    section: RepeatableSection,
+export default  {
+    text: Text,
+    section: Section,
 };
-
-export {
-    repeatables
-}
