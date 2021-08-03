@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Pages\AboutController;
 use App\Http\Controllers\Pages\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,14 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class);
-
-Route::get('/foo', function () {
-    return 'foo';
-});
-Route::get('/{foo}', function ($foo) {
-    return $foo;
-});
-Route::get('/{foo}/{bar}', function ($foo, $bar) {
-    return $bar;
-});
+Route::trans('/', HomeController::class)->name('home');
+Route::trans('/__(routes.about)', AboutController::class)->name('about');

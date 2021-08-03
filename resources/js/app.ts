@@ -6,9 +6,6 @@ import {
 
 const el = document.getElementById('app');
 
-import Foo from './components/Foo.vue'
-import Image from './components/Image.vue'
-
 if (el) {
     const app = createApp({
         render: () =>
@@ -17,9 +14,7 @@ if (el) {
                 resolveComponent: (name) => require(`./Pages/${name}`).default,
             }),
     })
-        .use(InertiaPlugin)
-        .component('Foo', Foo)
-        .component('Image', Image);
+        .use(InertiaPlugin);
 
     app.mount(el);
 

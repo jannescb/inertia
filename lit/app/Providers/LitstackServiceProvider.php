@@ -2,6 +2,7 @@
 
 namespace Lit\Providers;
 
+use Ignite\Crud\Fields\Route;
 use Illuminate\Support\ServiceProvider;
 
 class LitstackServiceProvider extends ServiceProvider
@@ -23,6 +24,9 @@ class LitstackServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Route::register('app', function ($collection) {
+            $collection->route('Home', 'home', fn ($locale) => __route('home'));
+            $collection->route('About', 'about', fn ($locale) => __route('about'));
+        });
     }
 }

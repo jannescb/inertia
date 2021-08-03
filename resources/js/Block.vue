@@ -1,7 +1,10 @@
 <template>
-    <template v-for="(repeatable, index) in block" :key="index">
-        <component :repeatable="repeatable" :is="getComponent(repeatable)" />
-    </template>
+    <component
+        v-for="(repeatable, index) in block"
+        :key="index"
+        :repeatable="repeatable"
+        :is="getComponent(repeatable)"
+    />
 </template>
 
 <script lang="ts">

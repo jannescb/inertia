@@ -2,8 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\LitNavigationResource;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Lit\Config\Form\Navigations\MainNavigationConfig;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -36,9 +38,12 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        $mainNavigation = MainNavigationConfig::load();
+
         return array_merge(parent::share($request), [
-            'locale'  => app()->getLocale(),
-            'locales' => config('translatable.locales'),
+            'locale'         => app()->getLocale(),
+            'locales'        => config('translatable.locales'),
+            'mainNavigation' => LitNavigationResource::collection($mainNavigation->main),
         ]);
     }
 }

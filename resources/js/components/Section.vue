@@ -5,7 +5,9 @@
             'bg-blue-500': repeatable.sectionType == 'blue',
         }"
     >
-        <Block :block="repeatable.content" :repeatables="repeatables" />
+        <div class="container mx-auto">
+            <Block :block="repeatable.content" :repeatables="repeatables" />
+        </div>
     </section>
 </template>
 

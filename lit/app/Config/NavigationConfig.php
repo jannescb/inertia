@@ -2,9 +2,10 @@
 
 namespace Lit\Config;
 
-use Lit\Config\Form\Pages\HomeConfig;
 use Ignite\Application\Navigation\Config;
 use Ignite\Application\Navigation\Navigation;
+use Lit\Config\Form\Navigations\MainNavigationConfig;
+use Lit\Config\Form\Pages\HomeConfig;
 
 class NavigationConfig extends Config
 {
@@ -39,7 +40,8 @@ class NavigationConfig extends Config
         $nav->section([
             $nav->title('Pages'),
 
-            $nav->preset(HomeConfig::class)
+            $nav->preset(HomeConfig::class, ['icon' => fa('home')]),
+            $nav->preset(MainNavigationConfig::class, ['icon' => fa('ship')]),
         ]);
     }
 }

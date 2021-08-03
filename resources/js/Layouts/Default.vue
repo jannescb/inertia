@@ -1,14 +1,18 @@
 <template>
     <nav>
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
+        <Link
+            :href="link.route"
+            v-for="(link, index) in mainNavigation.data"
+            :key="index"
+        >
+            {{ link.translation[currentLocale].title }}
+        </Link>
 
         <div v-for="(locale, index) in locales" :key="index">
             {{ locale }}
         </div>
     </nav>
-    <main class="container mx-auto">
+    <main>
         <slot />
     </main>
     <footer></footer>
@@ -27,7 +31,10 @@ export default defineComponent({
     setup() {
         const currentLocale = computed(() => usePage().props.value.locale);
         const locales = computed(() => usePage().props.value.locales);
-        return { currentLocale, locales };
+        const mainNavigation = computed(
+            () => usePage().props.value.mainNavigation
+        );
+        return { currentLocale, locales, mainNavigation };
     },
 });
 </script>
