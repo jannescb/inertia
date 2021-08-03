@@ -6,8 +6,8 @@ import {
 
 const el = document.getElementById('app');
 
-import Foo from './Foo.vue'
-import Image from './Image.vue'
+import Foo from './components/Foo.vue'
+import Image from './components/Image.vue'
 
 if (el) {
     const app = createApp({

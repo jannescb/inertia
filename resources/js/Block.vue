@@ -1,36 +1,32 @@
 <template>
-    <component
-        v-for="repeatable, index in block"
-        :repeatable="repeatable"
-        :key="index"
-        :is="getComponent(repeatable)"
-    />
+    <template v-for="(repeatable, index) in block" :key="index">
+        <component :repeatable="repeatable" :is="getComponent(repeatable)" />
+    </template>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 export default defineComponent({
     name: 'Block',
     props: {
         block: {
             type: Object,
-            required: true   
+            required: true,
         },
-        config: {
+        repeatables: {
             type: Object,
-            required: true   
+            required: true,
         },
     },
-    setup(props){
-        interface repeatable {
-            type: string
-        }
-        const getComponent = (repeatable: repeatable)=> {
-            return props.config[repeatable.type]
-        }
+    setup(props) {
+        const getComponent = (repeatable: any) => {
+            if (props.repeatables.hasOwnProperty(repeatable.type)) {
+                return props.repeatables[repeatable.type];
+            }
+        };
         return {
-            getComponent
-        }
-    }
-})
+            getComponent,
+        };
+    },
+});
 </script>

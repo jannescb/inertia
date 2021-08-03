@@ -22,7 +22,7 @@ class HomeConfig extends FormConfig
      */
     public function routePrefix()
     {
-        return "pages/home";
+        return 'pages/home';
     }
 
     /**
@@ -40,7 +40,7 @@ class HomeConfig extends FormConfig
     /**
      * Setup form page.
      *
-     * @param \Lit\Crud\CrudShow $page
+     * @param  \Lit\Crud\CrudShow $page
      * @return void
      */
     public function show(CrudShow $page)
@@ -49,6 +49,32 @@ class HomeConfig extends FormConfig
             $form->block('content')
                 ->title('Content')
                 ->repeatables(function ($repeatables) {
+                    $repeatables->add('section', function ($form, $preview) {
+                        $preview->col('Section');
+                        $form->select('sectionType')
+                            ->options([
+                                'default' => 'Default Section',
+                                'blue'    => 'Blue Section',
+                            ])
+                            ->title('Type');
+
+                        $form->block('content')
+                            ->title('Content')
+                            ->repeatables(function ($repeatables) {
+                                    $repeatables->add('text', function ($form, $preview) {
+                                        $preview->col('{text}');
+                                        $form->input('text')
+                                            ->title('Text');
+                                    });
+
+                                    $repeatables->add('image', function ($form, $preview) {
+                                        $preview->col('{}');
+                                        $form->image('image')
+                                            ->title('Image');
+                                    });
+                                });
+                    });
+
                     $repeatables->add('text', function ($form, $preview) {
                         $preview->col('{text}');
                         $form->input('text')

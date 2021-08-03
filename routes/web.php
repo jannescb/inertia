@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Pages\HomeController;
 use Illuminate\Support\Facades\Route;
-use Lit\Config\Form\Pages\HomeConfig;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +15,7 @@ use Lit\Config\Form\Pages\HomeConfig;
 */
 
 Route::get('/', HomeController::class);
+
 Route::get('/foo', function () {
     return 'foo';
 });

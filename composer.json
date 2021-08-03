@@ -15,6 +15,7 @@
         "inertiajs/inertia-laravel": "^0.4.4",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
+        "litstack/bladesmith": "^1.0",
         "litstack/litstack": "^3.7"
     },
     "require-dev": {
@@ -25,6 +26,12 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://store.litstack.io"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "App\\": "app/",
