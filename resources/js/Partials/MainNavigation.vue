@@ -5,7 +5,7 @@
             v-for="(link, index) in mainNavigation.data"
             :key="index"
         >
-            {{ link.translation[currentLocale].title }}
+            {{ link.title }}
         </Link>
     </nav>
 </template>

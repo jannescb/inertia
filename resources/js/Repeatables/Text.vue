@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{ repeatable.translation.en.text }}
+        {{ repeatable.text }}
     </div>
 </template>
 

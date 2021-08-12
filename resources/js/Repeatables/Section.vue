@@ -6,20 +6,16 @@
         }"
     >
         <div class="container mx-auto">
-            <Block :block="repeatable.content" :repeatables="repeatables" />
+            <LitBlock :block="repeatable.content" :repeatables="repeatables" />
         </div>
     </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Block from './../components/Block.vue';
 import RepeatableText from './Text.vue';
 
 export default defineComponent({
-    components: {
-        Block,
-    },
     props: {
         repeatable: {
             type: Object,

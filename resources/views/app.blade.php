@@ -1,3 +1,10 @@
+@php
+try {
+    $ssr = Http::post('http://localhost:8080/render', $page)->throw()->json();
+} catch (Exception $e) {
+    $ssr = null;
+}
+@endphp
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
   <head>
@@ -5,8 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ mix('/js/app.js') }}" defer></script>
+    @foreach($ssr['head'] ?? [] as $element)
+        {!! $element !!}
+    @endforeach
   </head>
   <body>
-    @inertia
+    @if ($ssr)
+        {!! $ssr['body'] !!}
+    @else
+        @inertia
+    @endif
   </body>
 </html>

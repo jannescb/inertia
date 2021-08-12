@@ -10,7 +10,7 @@ class HomeController
     public function __invoke()
     {
         return Inertia::render('Home/Home', [
-            'form' => HomeConfig::load(),
+            'form' => HomeConfig::load()->resource()->toArray(request()),
         ]);
     }
 }

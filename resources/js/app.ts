@@ -1,24 +1,14 @@
-import { createApp, h } from 'vue';
-import {
-    App as InertiaApp,
-    plugin as InertiaPlugin,
-} from '@inertiajs/inertia-vue3';
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/inertia-vue3'
 
-import Ui from './Ui/index'
+import LitBlock from 'vue-lit-block'
 
-const el = document.getElementById('app');
-
-if (el) {
-    const app = createApp({
-        render: () =>
-            h(InertiaApp, {
-                initialPage: JSON.parse(el.dataset.page as string),
-                resolveComponent: (name) => require(`./Pages/${name}`).default,
-            }),
-    })
-        .use(InertiaPlugin)
-        .use(Ui);
-
-    app.mount(el);
-
-}
+createInertiaApp({
+  resolve: name => require(`./Pages/${name}`),
+  setup({ el, app, props, plugin }) {
+    createApp({ render: () => h(app, props) })
+      .use(plugin)
+      .use(LitBlock)
+      .mount(el)
+  },
+})

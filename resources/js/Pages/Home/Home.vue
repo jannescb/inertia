@@ -1,19 +1,19 @@
 <template>
     <DefaultLayout>
         <h1>Home</h1>
-        <Block :block="form?.content" :repeatables="repeatables" />
+        s
+        <!-- <LitBlock :block="form?.content" :repeatables="repeatables" /> -->
+        t
     </DefaultLayout>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import DefaultLayout from '../../Layouts/Default.vue';
-import Block from '../../components/Block.vue';
 import { repeatables } from './home.config';
 export default defineComponent({
     components: {
         DefaultLayout,
-        Block,
     },
     props: {
         form: {
